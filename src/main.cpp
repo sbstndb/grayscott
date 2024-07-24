@@ -1,7 +1,6 @@
 #include <iostream>
 #include <omp.h>
 #include <cmath>
-#include <omp.h>
 #include <vector>
 #include <fstream>
 
