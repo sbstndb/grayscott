@@ -24,3 +24,8 @@ pip install  pillow imageio
 cd build
 python ../src/python/*.py
 ```
+
+Here is the resut ! 
+![Gray-Scott Simulation](result/gray-scott-simulation.gif)
+
+
