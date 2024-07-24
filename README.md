@@ -26,6 +26,6 @@ python ../src/python/*.py
 ```
 
 Here is the resut ! 
-![Gray-Scott Simulation](result/gray-scott-simulation.gif)
+![Gray-Scott Simulation](result/gray_scott_simulation.gif)
 
 
