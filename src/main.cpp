@@ -29,8 +29,10 @@ auto step(std::vector<std::vector<double>>& u, std::vector<std::vector<double>>&
     std::vector<std::vector<double>> u_next = u;
     std::vector<std::vector<double>> v_next = v;
 
-    #pragma omp parallel for collapse(2)
+//    #pragma omp parallel for collapse(2)
+    #pragma omp parallel for schedule(static) shared(u, v, u_next, v_next)
     for (int i = 1; i < N - 1; ++i) {
+	#pragma omp simd
         for (int j = 1; j < N - 1; ++j) {
             double laplacian_u = u[i-1][j] + u[i+1][j] + u[i][j-1] + u[i][j+1] - 4 * u[i][j];
             double laplacian_v = v[i-1][j] + v[i+1][j] + v[i][j-1] + v[i][j+1] - 4 * v[i][j];
@@ -75,7 +77,7 @@ int main() {
         step(u, v);
         if (step_num % 1000 == 0) {
             std::cout << "Step: " << step_num << std::endl;
-            save_grid(u, step_num);
+//            save_grid(u, step_num);
         }
     }
 
